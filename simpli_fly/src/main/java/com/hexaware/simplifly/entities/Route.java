@@ -4,7 +4,6 @@ package com.hexaware.simplifly.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Routes")

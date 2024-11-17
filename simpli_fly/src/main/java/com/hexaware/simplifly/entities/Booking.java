@@ -50,5 +50,30 @@ public class Booking {
     public void preUpdate() {
         updatedAt = LocalDateTime.now();
     }
+
+    public int getTotalPrice() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTotalPrice'");
+    }
+
+    public int getUserId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUserId'");
+    }
+
+    public int getRouteId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getRouteId'");
+    }
+
+    public String getStatus() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getStatus'");
+    }
+
+    public void setStatus(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setStatus'");
+    }
 }
 

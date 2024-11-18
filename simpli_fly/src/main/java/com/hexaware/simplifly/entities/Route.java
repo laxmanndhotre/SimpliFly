@@ -1,8 +1,7 @@
 package com.hexaware.simplifly.entities;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
+import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

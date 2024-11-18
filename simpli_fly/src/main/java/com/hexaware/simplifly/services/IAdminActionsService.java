@@ -7,7 +7,7 @@ import com.hexaware.simplifly.entities.Seat;
 import com.hexaware.simplifly.entities.Payment;
 import java.util.List;
 
-public interface AdminActionsService {
+public interface IAdminActionsService {
 
     Flight addFlight(Flight flight);
 

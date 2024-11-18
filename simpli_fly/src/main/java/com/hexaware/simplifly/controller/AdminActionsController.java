@@ -4,7 +4,7 @@ import com.hexaware.simplifly.entities.Flight;
 import com.hexaware.simplifly.entities.Route;
 import com.hexaware.simplifly.entities.Seat;
 import com.hexaware.simplifly.entities.Payment;
-import com.hexaware.simplifly.services.AdminActionsService;
+import com.hexaware.simplifly.services.IAdminActionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import java.util.List;
 public class AdminActionsController {
 
     @Autowired
-    private AdminActionsService adminActionsService;
+    private IAdminActionsService adminActionsService;
 
     // Flight endpoints
     @GetMapping("/flights")

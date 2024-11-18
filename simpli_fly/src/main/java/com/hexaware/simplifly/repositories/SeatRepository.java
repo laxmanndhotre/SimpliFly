@@ -9,4 +9,5 @@ public interface SeatRepository extends JpaRepository<Seat, Integer> {
     List<Seat> findByBookingId(int bookingId);
     List<Seat> findByIsAvailable(boolean isAvailable);
     Seat save(Optional<Seat> existingSeat);
+    List<Seat> findAvailableSeatsByRouteId(int routeId);
 }

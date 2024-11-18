@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface FlightService {
+public interface IFlightService {
 
     public static final FlightRepository flightRepository = null;
 

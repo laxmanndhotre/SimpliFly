@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface RouteService {
+public interface IRouteService {
 
     public static final RouteRepository routeRepository = null;
 

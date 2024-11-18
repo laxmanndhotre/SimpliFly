@@ -10,19 +10,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AdminActionsServiceImpl implements AdminActionsService {
+public class AdminActionsServiceImpl implements IAdminActionsService {
 
     @Autowired
-    private FlightService flightService;
+    private IFlightService flightService;
 
     @Autowired
-    private RouteService routeService;
+    private IRouteService routeService;
 
     @Autowired
-    private SeatService seatService;
+    private ISeatService seatService;
 
     @Autowired
-    private PaymentService paymentService;
+    private IPaymentService paymentService;
 
     @Override
     public Flight addFlight(Flight flight) {

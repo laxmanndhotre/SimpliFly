@@ -1,28 +1,22 @@
 package com.hexaware.simplifly.services;
 
 import com.hexaware.simplifly.entities.Payment;
-import com.hexaware.simplifly.repositories.PaymentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-@Service
-public class IPaymentService {
+public interface IPaymentService {
 
-    @Autowired
-    private PaymentRepository paymentRepository;
+    Payment addPayment(Payment payment);
 
-    public Payment processPayment(Payment payment) {
-        return paymentRepository.save(payment);
-    }
+    List<Payment> getAllPayments();
 
-    public List<Payment> getPaymentsByBookingId(int bookingId) {
-        return paymentRepository.findByBookingId(bookingId);
-    }
+    Payment getPaymentById(int id);
 
-    public Optional<Payment> getPaymentById(int id) {
-        return paymentRepository.findById(id);
-    }
+    void deletePayment(int id);
+
+    Payment updatePayment(int id, Payment payment);
+
+    Payment processPayment(Payment payment);
+
+    List<Payment> getPaymentsByBookingId(int bookingId);
 }

@@ -2,15 +2,27 @@ package com.hexaware.simplifly.services;
 
 import com.hexaware.simplifly.entities.Seat;
 
-
 import java.util.List;
-import java.util.Optional;
 
 public interface ISeatService {
 
-    public List<Seat> getAvailableSeats(); 
+    List<Seat> getSeatsByBookingId(int bookingId);
 
-    public Seat updateSeatAvailability(Seat seat) ;
+    List<Seat> getAvailableSeatsByRouteId(int routeId);
 
-    public Optional<Seat> getSeatById(int id) ;
+    Seat reserveSeat(Seat seat);
+
+    void releaseSeat(int seatId);
+
+    void markSeatAsUnavailable(int seatId);
+
+    Seat addSeat(Seat seat); 
+
+    void deleteSeat(int seatId); 
+
+    Seat updateSeat(int id,Seat seat); 
+    
+    Seat getSeatById(int seatId);
+
+    List<Seat> getAllSeats(); 
 }

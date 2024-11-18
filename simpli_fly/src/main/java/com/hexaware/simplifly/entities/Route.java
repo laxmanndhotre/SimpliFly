@@ -1,7 +1,5 @@
 package com.hexaware.simplifly.entities;
 
-
-
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import jakarta.persistence.Column;
@@ -13,6 +11,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+
+
 @Entity
 @Table(name = "Routes")
 public class Route {

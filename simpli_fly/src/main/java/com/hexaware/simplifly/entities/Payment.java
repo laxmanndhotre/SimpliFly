@@ -28,10 +28,15 @@ public class Payment {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Status status;
+    private String status;
 
     public enum PaymentMethod {
-        CREDIT_CARD, DEBIT_CARD, PAYPAL, UPI
+        CREDIT_CARD, DEBIT_CARD, PAYPAL, UPI;
+
+        boolean isEmpty() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        }
     }
 
     public enum Status {
@@ -78,16 +83,16 @@ public class Payment {
         this.paymentMethod = paymentMethod;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
     public Payment(int paymentId, Booking booking, double amount, LocalDateTime paymentDate,
-            PaymentMethod paymentMethod, Status status) {
+            PaymentMethod paymentMethod, String status) {
         this.paymentId = paymentId;
         this.booking = booking;
         this.amount = amount;

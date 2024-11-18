@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class FlightServiceImpl implements FlightService {
+public class FlightServiceImpl implements IFlightService {
 
     @Autowired
     private FlightRepository flightRepository;

@@ -1,7 +1,7 @@
 package com.hexaware.simplifly.controller;
 
 import com.hexaware.simplifly.entities.Route;
-import com.hexaware.simplifly.services.RouteService;
+import com.hexaware.simplifly.services.IRouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import java.util.List;
 public class RouteController {
 
     @Autowired
-    private RouteService routeService;
+    private IRouteService routeService;
 
     @GetMapping
     public ResponseEntity<List<Route>> getAllRoutes() {

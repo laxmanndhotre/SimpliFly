@@ -2,7 +2,7 @@ package com.hexaware.simplifly.controller;
 
 
 import com.hexaware.simplifly.entities.Flight;
-import com.hexaware.simplifly.services.FlightService;
+import com.hexaware.simplifly.services.IFlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 public class FlightController {
 
     @Autowired
-    private FlightService flightService;
+    private IFlightService flightService;
 
     @GetMapping
     public ResponseEntity<List<Flight>> getAllFlights() {

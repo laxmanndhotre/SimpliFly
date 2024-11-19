@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class RouteServiceImpl implements RouteService {
+public class RouteServiceImpl implements IRouteService {
 
     @Autowired
     private RouteRepository routeRepository;

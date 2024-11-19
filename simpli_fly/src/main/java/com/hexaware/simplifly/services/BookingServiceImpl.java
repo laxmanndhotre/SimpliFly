@@ -2,7 +2,6 @@ package com.hexaware.simplifly.services;
 
 import com.hexaware.simplifly.entities.Booking;
 import com.hexaware.simplifly.repositories.BookingRepository;
-import com.hexaware.simplifly.services.IBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

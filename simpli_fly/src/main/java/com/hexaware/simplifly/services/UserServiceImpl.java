@@ -2,7 +2,6 @@ package com.hexaware.simplifly.services;
 
 import com.hexaware.simplifly.entities.User;
 import com.hexaware.simplifly.repositories.UserRepository;
-import com.hexaware.simplifly.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

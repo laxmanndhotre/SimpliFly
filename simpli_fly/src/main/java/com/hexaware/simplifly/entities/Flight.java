@@ -2,6 +2,8 @@ package com.hexaware.simplifly.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,20 +13,29 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int flightId;
 
+    @NotBlank(message = "Flight name is mandatory")
+    @Size(max = 100, message = "Flight name must be less than 100 characters")
     @Column(nullable = false, length = 100)
     private String flightName;
 
+    @NotBlank(message = "Flight number is mandatory")
+    @Size(max = 20, message = "Flight number must be less than 20 characters")
     @Column(nullable = false, length = 20)
     private String flightNumber;
 
+    @NotNull(message = "Owner ID is mandatory")
     @Column(nullable = false)
     private int ownerId;
 
+    @NotNull(message = "Total seats are mandatory")
+    @Min(value = 1, message = "Total seats must be at least 1")
     @Column(nullable = false)
     private int totalSeats;
 
+    @Min(value = 0, message = "Baggage limit cannot be negative")
     private int baggageLimit;
 
+    @NotNull(message = "Creation date is mandatory")
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
@@ -35,26 +46,26 @@ public class Flight {
     public void preUpdate() {
         updatedAt = LocalDateTime.now();
     }
+
     @Override
-	public String toString() {
-		return "Flight [flightId=" + flightId + ", flightName=" + flightName + ", flightNumber=" + flightNumber
-				+ ", ownerId=" + ownerId + ", totalSeats=" + totalSeats + ", baggageLimit=" + baggageLimit
-				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
-	}
+    public String toString() {
+        return "Flight [flightId=" + flightId + ", flightName=" + flightName + ", flightNumber=" + flightNumber
+                + ", ownerId=" + ownerId + ", totalSeats=" + totalSeats + ", baggageLimit=" + baggageLimit
+                + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+    }
 
-	public Flight(int flightId, String flightName, String flightNumber, int ownerId, int totalSeats, int baggageLimit,
-			LocalDateTime createdAt, LocalDateTime updatedAt) {
-		super();
-		this.flightId = flightId;
-		this.flightName = flightName;
-		this.flightNumber = flightNumber;
-		this.ownerId = ownerId;
-		this.totalSeats = totalSeats;
-		this.baggageLimit = baggageLimit;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	}
-
+    public Flight(int flightId, String flightName, String flightNumber, int ownerId, int totalSeats, int baggageLimit,
+                  LocalDateTime createdAt, LocalDateTime updatedAt) {
+        super();
+        this.flightId = flightId;
+        this.flightName = flightName;
+        this.flightNumber = flightNumber;
+        this.ownerId = ownerId;
+        this.totalSeats = totalSeats;
+        this.baggageLimit = baggageLimit;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 	public int getFlightId() {
 		return flightId;
 	}

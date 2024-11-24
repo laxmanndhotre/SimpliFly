@@ -44,14 +44,14 @@ public class PaymentServiceImpl implements IPaymentService {
             throw new IllegalArgumentException("Payment with ID " + id + " does not exist");
         }
         validatePayment(payment);
-        payment.setPaymentId(id); // Ensure the correct ID is being updated
+        payment.setPaymentId(id); 
         return paymentRepository.save(payment);
     }
 
     @Override
     public Payment processPayment(Payment payment) {
         validatePayment(payment);
-        payment.setStatus("successful"); // Example of setting a status during processing
+        payment.setStatus("successful"); 		
         return paymentRepository.save(payment);
     }
 
@@ -60,7 +60,7 @@ public class PaymentServiceImpl implements IPaymentService {
         if (bookingId <= 0) {
             throw new IllegalArgumentException("Booking ID must be greater than zero");
         }
-        return paymentRepository.findByBookingId(bookingId);
+        return paymentRepository.findByBookingBookingId(bookingId);
     }
 
     /**
@@ -80,4 +80,6 @@ public class PaymentServiceImpl implements IPaymentService {
             throw new IllegalArgumentException("Payment status cannot be null or empty");
         }
     }
+
+	
 }

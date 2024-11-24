@@ -2,6 +2,8 @@ package com.hexaware.simplifly.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,30 +18,34 @@ public class AdminAction {
     @JoinColumn(name = "admin_id", nullable = false)
     private User admin;
 
+    @NotBlank(message = "Action type is mandatory")
+    @Size(max = 50, message = "Action type must be less than 50 characters")
     @Column(nullable = false, length = 50)
     private String actionType;
 
+    @Size(max = 255, message = "Action details must be less than 255 characters")
     @Column
     private String actionDetails;
 
+    @NotNull(message = "Action timestamp is mandatory")
     @Column(nullable = false)
     private LocalDateTime actionTimestamp = LocalDateTime.now();
-	
-    public AdminAction(int actionId, User admin, String actionType, String actionDetails,
-			LocalDateTime actionTimestamp) {
-		super();
-		this.actionId = actionId;
-		this.admin = admin;
-		this.actionType = actionType;
-		this.actionDetails = actionDetails;
-		this.actionTimestamp = actionTimestamp;
-	}
 
-	@Override
-	public String toString() {
-		return "AdminAction [actionId=" + actionId + ", actionType=" + actionType + ", actionDetails=" + actionDetails
-				+ ", actionTimestamp=" + actionTimestamp + "]";
-	}
+    public AdminAction(int actionId, User admin, String actionType, String actionDetails,
+                       LocalDateTime actionTimestamp) {
+        super();
+        this.actionId = actionId;
+        this.admin = admin;
+        this.actionType = actionType;
+        this.actionDetails = actionDetails;
+        this.actionTimestamp = actionTimestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "AdminAction [actionId=" + actionId + ", actionType=" + actionType + ", actionDetails=" + actionDetails
+                + ", actionTimestamp=" + actionTimestamp + "]";
+    }
 
 	public int getActionId() {
 		return actionId;

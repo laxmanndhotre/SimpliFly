@@ -32,7 +32,7 @@ public class BookingServiceImpl implements IBookingService {
 
     @Override
     public List<Booking> getBookingsByUserId(int userId) {
-        return bookingRepository.findByUserId(userId);
+        return bookingRepository.findByUserUserId(userId);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class BookingServiceImpl implements IBookingService {
 
     @Override
     public List<Booking> getBookingsByRouteId(int routeId) {
-       return bookingRepository.findByRouteId(routeId);
+       return bookingRepository.findByRouteRouteId(routeId);
     }
 
 

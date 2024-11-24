@@ -9,6 +9,11 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Flights")
 public class Flight {
+	
+	public Flight()
+	{	
+		
+	}
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int flightId;

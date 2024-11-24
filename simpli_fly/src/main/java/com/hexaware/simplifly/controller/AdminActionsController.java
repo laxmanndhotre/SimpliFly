@@ -32,13 +32,13 @@ public class AdminActionsController {
         return new ResponseEntity<>(flight, HttpStatus.OK);
     }
 
-    @PostMapping("/flights")
+    @PostMapping("/flights/add")
     public ResponseEntity<Flight> addFlight(@RequestBody Flight flight) {
         Flight newFlight = adminActionsService.addFlight(flight);
         return new ResponseEntity<>(newFlight, HttpStatus.CREATED);
     }
 
-    @PutMapping("/flights/{id}")
+    @PutMapping("/flights/update{id}")
     public ResponseEntity<Flight> updateFlight(@PathVariable int id, @RequestBody Flight flight) {
         Flight updatedFlight = adminActionsService.updateFlight(id, flight);
         return new ResponseEntity<>(updatedFlight, HttpStatus.OK);
@@ -80,7 +80,6 @@ public class AdminActionsController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    // Seat endpoints
     @GetMapping("/seats")
     public ResponseEntity<List<Seat>> getAllSeats() {
         List<Seat> seats = adminActionsService.getAllSeats();
@@ -93,19 +92,19 @@ public class AdminActionsController {
         return new ResponseEntity<>(seat, HttpStatus.OK);
     }
 
-    @PostMapping("/seats")
+    @PostMapping("/seats/add")
     public ResponseEntity<Seat> addSeat(@RequestBody Seat seat) {
         Seat newSeat = adminActionsService.addSeat(seat);
         return new ResponseEntity<>(newSeat, HttpStatus.CREATED);
     }
 
-    @PutMapping("/seats/{id}")
+    @PutMapping("/seats/update{id}")
     public ResponseEntity<Seat> updateSeat(@PathVariable int id, @RequestBody Seat seat) {
         Seat updatedSeat = adminActionsService.updateSeat(id, seat);
         return new ResponseEntity<>(updatedSeat, HttpStatus.OK);
     }
 
-    @DeleteMapping("/seats/{id}")
+    @DeleteMapping("/seats/delete/{id}")
     public ResponseEntity<Void> deleteSeat(@PathVariable int id) {
         adminActionsService.deleteSeat(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -124,19 +123,19 @@ public class AdminActionsController {
         return new ResponseEntity<>(payment, HttpStatus.OK);
     }
 
-    @PostMapping("/payments")
+    @PostMapping("/payments/add")
     public ResponseEntity<Payment> addPayment(@RequestBody Payment payment) {
         Payment newPayment = adminActionsService.addPayment(payment);
         return new ResponseEntity<>(newPayment, HttpStatus.CREATED);
     }
 
-    @PutMapping("/payments/{id}")
+    @PutMapping("/payments/update/{id}")
     public ResponseEntity<Payment> updatePayment(@PathVariable int id, @RequestBody Payment payment) {
         Payment updatedPayment = adminActionsService.updatePayment(id, payment);
         return new ResponseEntity<>(updatedPayment, HttpStatus.OK);
     }
 
-    @DeleteMapping("/payments/{id}")
+    @DeleteMapping("/payments/delete/{id}")
     public ResponseEntity<Void> deletePayment(@PathVariable int id) {
         adminActionsService.deletePayment(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

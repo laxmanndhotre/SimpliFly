@@ -16,7 +16,7 @@ public class SeatServiceImpl implements ISeatService {
 
     @Override
     public List<Seat> getSeatsByBookingId(int bookingId) {
-        return seatRepository.findByBookingId(bookingId);
+        return seatRepository.findByBookingBookingId(bookingId);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class SeatServiceImpl implements ISeatService {
             throw new IllegalArgumentException("Seat with ID " + seatId + " does not exist");
         }
         Seat seat = seatOptional.get();
-        seat.setAvailable(false); // Mark the seat as unavailable
+        seat.setAvailable(false); 
         seatRepository.save(seat);
     }
 

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.simplifly.entities.Booking;
+import com.hexaware.simplifly.exceptions.ResourceNotFoundException;
 import com.hexaware.simplifly.services.IBookingService;
 
 @RestController
@@ -30,8 +31,8 @@ public class BookingController {
     }
 
     @GetMapping("/find/id/{id}")
-    public ResponseEntity<Booking> getBookingById(@PathVariable int id) {
-        Optional<Booking> booking = bookingService.getBookingById(id);
+    public ResponseEntity<Booking> getBookingById(@PathVariable int id) throws ResourceNotFoundException {
+        Optional<Booking> booking = Optional.ofNullable(bookingService.getBookingById(id));
         return booking.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -41,8 +42,13 @@ public class BookingController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> cancelBooking(@PathVariable int id) {
-        bookingService.cancelBooking(id);
+    public ResponseEntity<Void> cancelBooking(@PathVariable int id) throws ResourceNotFoundException {
+        try {
+			bookingService.cancelBooking(id);
+		} catch (ResourceNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return ResponseEntity.noContent().build();
     }
 }

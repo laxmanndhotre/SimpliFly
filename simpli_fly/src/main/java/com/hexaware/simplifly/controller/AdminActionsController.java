@@ -19,7 +19,7 @@ public class AdminActionsController {
     @Autowired
     private IAdminActionsService adminActionsService;
 
-    // Flight endpoints
+    
     @GetMapping("/flights")
     public ResponseEntity<List<Flight>> getAllFlights() {
         List<Flight> flights = adminActionsService.getAllFlights();
@@ -44,32 +44,31 @@ public class AdminActionsController {
         return new ResponseEntity<>(updatedFlight, HttpStatus.OK);
     }
 
-    @DeleteMapping("/flights/{id}")
+    @DeleteMapping("/flights/remove/{id}")
     public ResponseEntity<Void> deleteFlight(@PathVariable int id) {
         adminActionsService.deleteFlight(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-    // Route endpoints
+    
     @GetMapping("/routes")
     public ResponseEntity<List<Route>> getAllRoutes() {
         List<Route> routes = adminActionsService.getAllRoutes();
         return new ResponseEntity<>(routes, HttpStatus.OK);
     }
 
-    @GetMapping("/routes/{id}")
+    @GetMapping("/routes/get/{id}")
     public ResponseEntity<Route> getRouteById(@PathVariable int id) {
         Route route = adminActionsService.getRouteById(id);
         return new ResponseEntity<>(route, HttpStatus.OK);
     }
 
-    @PostMapping("/routes")
+    @PostMapping("/routes/add")
     public ResponseEntity<Route> addRoute(@RequestBody Route route) {
         Route newRoute = adminActionsService.addRoute(route);
         return new ResponseEntity<>(newRoute, HttpStatus.CREATED);
     }
 
-    @PutMapping("/routes/{id}")
+    @PutMapping("/routes/update/{id}")
     public ResponseEntity<Route> updateRoute(@PathVariable int id, @RequestBody Route route) {
         Route updatedRoute = adminActionsService.updateRoute(id, route);
         return new ResponseEntity<>(updatedRoute, HttpStatus.OK);

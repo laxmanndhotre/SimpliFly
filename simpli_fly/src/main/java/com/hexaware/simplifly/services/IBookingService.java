@@ -1,6 +1,7 @@
 package com.hexaware.simplifly.services;
 
 import com.hexaware.simplifly.entities.Booking;
+import com.hexaware.simplifly.exceptions.ResourceNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,9 +12,9 @@ public interface IBookingService {
 
     List<Booking> getBookingsByUserId(int userId);
 
-    Optional<Booking> getBookingById(int bookingId);
+    Booking getBookingById(int bookingId) throws ResourceNotFoundException;
 
-    void cancelBooking(int bookingId);
+    void cancelBooking(int bookingId) throws ResourceNotFoundException;
 
     List<Booking> getBookingsByRouteId(int routeId);
 

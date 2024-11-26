@@ -1,6 +1,7 @@
 package com.hexaware.simplifly.services;
 
 import com.hexaware.simplifly.entities.Booking;
+import com.hexaware.simplifly.exceptions.ResourceNotFoundException;
 import com.hexaware.simplifly.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +27,9 @@ public class BookingServiceImpl implements IBookingService {
     }
 
     @Override
-    public Optional<Booking> getBookingById(int bookingId) {
-        return bookingRepository.findById(bookingId);
+    public Booking getBookingById(int bookingId) throws ResourceNotFoundException {
+        return bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new ResourceNotFoundException("Booking not found with ID: " + bookingId));
     }
 
     @Override
@@ -42,25 +44,18 @@ public class BookingServiceImpl implements IBookingService {
 
     @Override
     public List<Booking> getBookingsByRouteId(int routeId) {
-       return bookingRepository.findByRouteRouteId(routeId);
+        return bookingRepository.findByRouteRouteId(routeId);
     }
 
-
     @Override
-public void cancelBooking(int bookingId) {
-    Optional<Booking> existingBooking = bookingRepository.findById(bookingId);
-    if (existingBooking.isPresent()) {
-        Booking booking = existingBooking.get();
-        if (booking.getStatus().equalsIgnoreCase("canceled")) {
+    public void cancelBooking(int bookingId) throws ResourceNotFoundException {
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new ResourceNotFoundException("Booking not found with ID: " + bookingId));
+        
+        if (booking.getStatus() == Booking.Status.CANCELED) {
             throw new IllegalStateException("Booking is already canceled");
         }
         booking.setStatus("canceled");
         bookingRepository.save(booking);
-    } else {
-        throw new IllegalArgumentException("Booking with id " + bookingId + " does not exist");
     }
 }
-
-
-}
-

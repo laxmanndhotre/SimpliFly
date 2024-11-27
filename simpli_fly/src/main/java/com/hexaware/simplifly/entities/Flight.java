@@ -1,7 +1,3 @@
-/*
-JA212 Laxman Dhotre, Date: 10/11/24 
-*/
-
 package com.hexaware.simplifly.entities;
 
 

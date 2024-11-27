@@ -31,8 +31,8 @@ public class BookingController {
     }
 
     @GetMapping("/find/id/{id}")
-    public ResponseEntity<Optional<Booking>> getBookingById(@PathVariable int id) throws ResourceNotFoundException {
-        Optional<Optional<Booking>> booking = Optional.ofNullable(bookingService.getBookingById(id));
+    public ResponseEntity<Booking> getBookingById(@PathVariable int id) throws ResourceNotFoundException {
+        Optional<Booking> booking = Optional.ofNullable(bookingService.getBookingById(id));
         return booking.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 

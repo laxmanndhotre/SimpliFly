@@ -1,7 +1,3 @@
-/*
-JA212 Laxman Dhotre, Date: 10/11/24 
-*/
-
 package com.hexaware.simplifly.entities;
 
 import java.time.LocalDateTime;
@@ -171,5 +167,12 @@ public class User {
     public void preUpdate() {
         updatedAt = LocalDateTime.now();
     }
+
+
+
+	public User() {
+		super();
+	}
+    
 }
 

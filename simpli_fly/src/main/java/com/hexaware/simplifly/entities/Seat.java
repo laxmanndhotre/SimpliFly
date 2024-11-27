@@ -59,7 +59,11 @@ public class Seat {
         this.seatNumber = seatNumber;
         this.isAvailable = isAvailable;
     }
-    @Override
+    public Seat() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
     public String toString() {
         return "Seat [seatId=" + seatId + ", booking=" + booking + ", seatNumber=" + seatNumber + ", isAvailable="
                 + isAvailable + "]";

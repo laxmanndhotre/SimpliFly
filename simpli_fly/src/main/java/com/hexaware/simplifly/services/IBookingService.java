@@ -12,7 +12,7 @@ public interface IBookingService {
 
     List<Booking> getBookingsByUserId(int userId);
 
-    Booking getBookingById(int bookingId) throws ResourceNotFoundException;
+    Optional<Booking> getBookingById(int bookingId) throws ResourceNotFoundException;
 
     void cancelBooking(int bookingId) throws ResourceNotFoundException;
 

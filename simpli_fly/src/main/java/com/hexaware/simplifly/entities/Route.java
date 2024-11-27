@@ -1,3 +1,7 @@
+/*
+JA212 Laxman Dhotre, Date: 10/11/24 
+*/
+
 package com.hexaware.simplifly.entities;
 
 
@@ -154,6 +158,10 @@ public class Route {
 		this.availableSeats = availableSeats;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+	}
+
+	public Route() {
+		
 	}
 
 	

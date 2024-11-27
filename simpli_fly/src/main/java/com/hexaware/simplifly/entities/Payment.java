@@ -101,7 +101,11 @@ public class Payment {
         this.status = status;
     }
 
-    @Override
+    public Payment() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
     public String toString() {
         return "Payment [paymentId=" + paymentId + ", booking=" + booking + ", amount=" + amount + ", paymentDate="
                 + paymentDate + ", paymentMethod=" + paymentMethod + ", status=" + status + "]";

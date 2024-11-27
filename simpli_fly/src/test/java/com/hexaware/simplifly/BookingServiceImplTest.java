@@ -37,10 +37,10 @@ public class BookingServiceImplTest {
     }
 
     @Test
-    public void testGetBookingById_Success() {
+    public void testGetBookingById_Success() throws ResourceNotFoundException {
         when(bookingRepository.findById(1)).thenReturn(Optional.of(booking));
 
-        Booking foundBooking = bookingService.getBookingById(1);
+        Optional<Booking> foundBooking = bookingService.getBookingById(1);
 
         assertTrue(foundBooking.isPresent());
         assertEquals(1, foundBooking.get().getBookingId());
@@ -56,7 +56,7 @@ public class BookingServiceImplTest {
     }
 
     @Test
-    public void testCancelBooking_Success() {
+    public void testCancelBooking_Success() throws ResourceNotFoundException {
         when(bookingRepository.findById(1)).thenReturn(Optional.of(booking));
 
         bookingService.cancelBooking(1);

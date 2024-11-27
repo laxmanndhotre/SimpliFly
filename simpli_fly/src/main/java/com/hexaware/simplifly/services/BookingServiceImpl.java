@@ -27,9 +27,9 @@ public class BookingServiceImpl implements IBookingService {
     }
 
     @Override
-    public Booking getBookingById(int bookingId) throws ResourceNotFoundException {
-        return bookingRepository.findById(bookingId)
-                .orElseThrow(() -> new ResourceNotFoundException("Booking not found with ID: " + bookingId));
+    public Optional<Booking> getBookingById(int bookingId) throws ResourceNotFoundException {
+        return Optional.of(bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new ResourceNotFoundException("Booking not found with ID: " + bookingId)));
     }
 
     @Override

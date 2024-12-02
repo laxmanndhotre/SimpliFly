@@ -1,7 +1,7 @@
 package com.hexaware.simplifly.mapper;
 
 
-
+import com.hexaware.simplifly.exceptions.*;
 import com.hexaware.simplifly.dto.AdminActionDTO;
 import com.hexaware.simplifly.entities.AdminAction;
 import com.hexaware.simplifly.entities.User;
@@ -25,9 +25,9 @@ public class AdminActionMapper {
         return adminActionDTO;
     }
 
-    public AdminAction toEntity(AdminActionDTO adminActionDTO) {
+    public AdminAction toEntity(AdminActionDTO adminActionDTO) throws ResourceNotFoundException {
         User admin = userRepository.findById(adminActionDTO.getAdminId())
-                .orElseThrow(() -> new IllegalArgumentException("Admin not found with ID: " + adminActionDTO.getAdminId()));
+                .orElseThrow(() -> new ResourceNotFoundException("Admin not found with ID: " + adminActionDTO.getAdminId()));
 
         AdminAction adminAction = new AdminAction(
                 adminActionDTO.getActionId(),

@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @PostMapping("/register")
+    @PostMapping("/add")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
         return new ResponseEntity<>(userService.registerUser(user), HttpStatus.CREATED);
     }

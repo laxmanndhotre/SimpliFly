@@ -28,19 +28,16 @@ public class Payment {
 
 //    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String status;
+    private Status status;
 
     public enum PaymentMethod {
-        CREDIT_CARD, DEBIT_CARD, PAYPAL, UPI;
+    	credit_card, debit_card, paypal, upi;
 
-        boolean isEmpty() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
-        }
+        
     }
 
     public enum Status {
-        SUCCESSFUL, FAILED, REFUNDED
+    	successful, failed, refunded, pending
     }
 
     public int getPaymentId() {
@@ -83,16 +80,16 @@ public class Payment {
         this.paymentMethod = paymentMethod;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(Status status2) {
+        this.status = status2;
     }
 
     public Payment(int paymentId, Booking booking, double amount, LocalDateTime paymentDate,
-            PaymentMethod paymentMethod, String status) {
+            PaymentMethod paymentMethod, Status status) {
         this.paymentId = paymentId;
         this.booking = booking;
         this.amount = amount;

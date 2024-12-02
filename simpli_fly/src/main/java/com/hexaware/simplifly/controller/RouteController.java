@@ -28,7 +28,7 @@ public class RouteController {
         return new ResponseEntity<>(route, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/new")
     public ResponseEntity<Route> addRoute(@RequestBody Route route) {
         Route newRoute = routeService.addRoute(route);
         return new ResponseEntity<>(newRoute, HttpStatus.CREATED);

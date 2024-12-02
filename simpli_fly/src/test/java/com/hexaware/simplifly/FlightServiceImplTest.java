@@ -2,7 +2,6 @@ package com.hexaware.simplifly;
 
 
 import com.hexaware.simplifly.entities.Flight;
-import com.hexaware.simplifly.exceptions.ResourceNotFoundException;
 import com.hexaware.simplifly.repositories.FlightRepository;
 import com.hexaware.simplifly.services.FlightServiceImpl;
 

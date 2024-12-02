@@ -51,7 +51,7 @@ public class PaymentServiceImpl implements IPaymentService {
     @Override
     public Payment processPayment(Payment payment) {
         validatePayment(payment);
-        payment.setStatus("successful"); 		
+        payment.setStatus(Payment.Status.successful); 		
         return paymentRepository.save(payment);
     }
 

@@ -51,7 +51,7 @@ public class User {
     }
 
     public enum Role {
-        PASSENGER, FLIGHT_OWNER, ADMIN
+        passenger, flight_owner, admin
     }
 
     

@@ -15,31 +15,31 @@ public class RouteController {
 
     @Autowired
     private IRouteService routeService;
-
+    @CrossOrigin(origins = "http://localhost:4200") 
     @GetMapping
     public ResponseEntity<List<Route>> getAllRoutes() {
         List<Route> routes = routeService.getAllRoutes();
         return new ResponseEntity<>(routes, HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:4200") 
     @GetMapping("/{id}")
     public ResponseEntity<Route> getRouteById(@PathVariable int id) {
         Route route = routeService.getRouteById(id);
         return new ResponseEntity<>(route, HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:4200") 
     @PostMapping("/new")
     public ResponseEntity<Route> addRoute(@RequestBody Route route) {
         Route newRoute = routeService.addRoute(route);
         return new ResponseEntity<>(newRoute, HttpStatus.CREATED);
     }
-
+    @CrossOrigin(origins = "http://localhost:4200") 
     @PutMapping("/{id}")
     public ResponseEntity<Route> updateRoute(@PathVariable int id, @RequestBody Route route) {
         Route updatedRoute = routeService.updateRoute(id, route);
         return new ResponseEntity<>(updatedRoute, HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:4200") 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteRoute(@PathVariable int id) {
         routeService.deleteRoute(id);

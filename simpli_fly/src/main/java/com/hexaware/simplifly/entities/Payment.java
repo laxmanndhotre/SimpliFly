@@ -26,7 +26,7 @@ public class Payment {
     @Column(nullable = false)
     private PaymentMethod paymentMethod;
 
-    @Enumerated(EnumType.STRING)
+//    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Status status;
 
